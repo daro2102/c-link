@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<!--meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /-->
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="msapplication-tap-highlight" content="no" />
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+		
+		
+		<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<link rel="stylesheet" href="css/jquery.mobile.datepicker.css">
+		<link rel="stylesheet" href="css/jquery.mobile.datepicker.theme.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		
+		<title>Hello World</title>
+	</head>
+	<body>
+		
+		<div id="page_login" data-role="page">
+
+			<div data-role="header">
+				<h1>Logowanie</h1>
+			</div>
+
+			<div role="main" class="ui-content">
+				
+				<form id="form_login" method="post">
+					
+					<label for="flogin">Login:</label>
+					<input type="text" name="flogin" id="flogin">
+					
+					<label for="fpassword">Password:</label>
+					<input type="password" name="fpassword" id="fpassword">
+					
+					<br/>
+					
+					<input type="submit" value="Zaloguj">
+					
+				</form>
+
+			</div>
+			
+			<div data-role="footer">
+				<h4>Page Footer</h4>
+			</div>
+			
+		</div>
+		
+		<div id="page_carList" data-role="page">
+
+			<div data-role="header">
+				<h1>Twoje samochody</h1>
+			</div>
+
+			<div role="main" class="ui-content">
+				
+				<ul id="lclient_cars" data-role="listview" data-inset="true"></ul>
+
+			</div>
+			
+			<div data-role="footer">
+				<h4>Page Footer</h4>
+			</div>
+			
+		</div>
+		
+		<div id="page_car" data-role="page">
+
+			<div data-role="header" data-add-back-btn="true">
+				<h1>Samochód</h1>
+			</div>
+
+			<div role="main" class="ui-content">
+				
+				<h2 class="title"></h2>
+				<p class="nextinspection">Następne badanie: <span></span></p>
+				
+				<br/>
+				
+				<a id="aset_visit" href="#" data-role="button" role="button">Umów wizytę</a>
+				
+				<br/>
+				
+				<h3>Nadchodzące wizyty</h3>
+				<ul id="lvisit_future" data-role="listview" data-inset="true"></ul>
+				
+				<br/>
+				
+				<h3>Historia wizyt</h3>
+				<ul id="lvisit_past" data-role="listview" data-inset="true"></ul>
+
+			</div>
+			
+			<div data-role="footer">
+				<h4>Page Footer</h4>
+			</div>
+			
+		</div>
+		
+		<div id="page_visitFuture" data-role="page">
+
+			<div data-role="header" data-add-back-btn="true">
+				<h1>Nadchodząca wizyta</h1>
+			</div>
+
+			<div role="main" class="ui-content">
+				
+				<h2 class="title">Data: <span></span></h2>
+				<p class="confirmed"></p>
+				
+				<br/>
+				
+				<h3 class="replacement_car_title"></h3>
+				<p class="replacement_car_name"></p>
+
+			</div>
+			
+			<div data-role="footer">
+				<h4>Page Footer</h4>
+			</div>
+			
+		</div>
+		
+		<div id="page_visitPast" data-role="page">
+
+			<div data-role="header" data-add-back-btn="true">
+				<h1>Przeszła wizyta</h1>
+			</div>
+
+			<div role="main" class="ui-content">
+				
+				<h2 class="title">Data: <span></span></h2>
+				<p class="mileage">Przebieg zanotowany: <span></span></p>
+				<p class="description">Opis: <span></span></p>
+				
+				<br/>
+				
+				<h3 class="replacement_car_title"></h3>
+				<p class="replacement_car_name"></p>
+
+			</div>
+			
+			<div data-role="footer">
+				<h4>Page Footer</h4>
+			</div>
+			
+		</div>
+		
+		<div id="page_setVisit" data-role="page">
+
+			<div data-role="header" data-add-back-btn="true">
+				<h1>Umawianie wizyty</h1>
+			</div>
+
+			<div role="main" class="ui-content">
+				
+				<form id="form_setvisit" method="post">
+					
+					<input id="fcarId" type="hidden" name="fcarId" value=""/>
+					
+					<label for="fdate">Wybierz datę:</label>
+					<input data-role="date" type="text" name="fdate" id="fdate"/>
+					
+					<div class="ui-field-contain">
+						<label for="freplacementcar">Wybierz samochód zastępczy:</label>
+						<select name="freplacementcar" id="freplacementcar">
+							<option value="1">Bez samochodu zastępczego</option>
+						</select>
+					</div>
+					
+					<br/>
+					
+					<input type="submit" value="Umów wizytę">
+					
+				</form>
+				
+			</div>
+			
+			<div data-role="footer">
+				<h4>Page Footer</h4>
+			</div>
+			
+		</div>
+		
+		<!--script type="text/javascript" src="cordova.js"></script-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/datepicker.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/jquery.mobile.datepicker.js"></script>
+		<script src="js/jqm.page.params.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+	</body>
+</html>
