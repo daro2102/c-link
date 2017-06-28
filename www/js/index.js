@@ -84,7 +84,7 @@ function init() {
 			}
 			
 			
-			// powstrzymanie przed domyślnym działaniem formularza
+			
 			e.preventDefault();
 			e.stopPropagation();
 			return false;
@@ -292,7 +292,7 @@ function init() {
 			//}
 			
 			
-			// powstrzymanie przed domyślnym działaniem formularza - dalsza część
+			// powstrzymanie przed domyślnym działaniem formularza 
 			return false;
 		});
 	
