@@ -9,7 +9,6 @@
 		
 		
 		<link rel="stylesheet" href="css/jquery.mobile.theme-1.4.5.min.css">
-		<!--link rel="stylesheet" href="css/jquery.mobile.custom.theme.min.css"-->
 		<link rel="stylesheet" href="css/jquery.mobile.datepicker.css">
 		<link rel="stylesheet" href="css/jquery.mobile.datepicker.theme.css">
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
@@ -45,12 +44,17 @@
 
 			</div>
 			
+			<div data-role="footer">
+				<a class="info_popup" data-icon="info">O firmie</a>
+			</div>
+			
 		</div>
 		
 		<div id="page_carList" data-role="page">
 
 			<div data-role="header">
 				<h1>Twoje samochody</h1>
+				<a href="#page_logout" data-icon="delete">Wyloguj</a>
 			</div>
 
 			<div role="main" class="ui-content">
@@ -59,12 +63,18 @@
 
 			</div>
 			
+			<div data-role="footer">
+				<a class="info_popup" data-icon="info">O firmie</a>
+			</div>
+			
 		</div>
 		
 		<div id="page_car" data-role="page">
 
-			<div data-role="header" data-add-back-btn="true">
+			<div data-role="header">
+				<a href="#page_carList" data-icon="back">Powrót</a>
 				<h1>Samochód</h1>
+				<a href="#page_logout" data-icon="delete">Wyloguj</a>
 			</div>
 
 			<div role="main" class="ui-content">
@@ -88,12 +98,18 @@
 
 			</div>
 			
+			<div data-role="footer">
+				<a class="info_popup" data-icon="info">O firmie</a>
+			</div>
+			
 		</div>
 		
 		<div id="page_visitFuture" data-role="page">
 
-			<div data-role="header" data-add-back-btn="true">
+			<div data-role="header">
+				<a href="#page_car?car_id=0" class="car_back" data-icon="back">Powrót</a>
 				<h1>Nadchodząca wizyta</h1>
+				<a href="#page_logout" data-icon="delete">Wyloguj</a>
 			</div>
 
 			<div role="main" class="ui-content">
@@ -108,12 +124,18 @@
 
 			</div>
 			
+			<div data-role="footer">
+				<a class="info_popup" data-icon="info">O firmie</a>
+			</div>
+			
 		</div>
 		
 		<div id="page_visitPast" data-role="page">
 
-			<div data-role="header" data-add-back-btn="true">
+			<div data-role="header">
+				<a href="#page_car?car_id=0" class="car_back" data-icon="back">Powrót</a>
 				<h1>Przeszła wizyta</h1>
+				<a href="#page_logout" data-icon="delete">Wyloguj</a>
 			</div>
 
 			<div role="main" class="ui-content">
@@ -129,12 +151,18 @@
 
 			</div>
 			
+			<div data-role="footer">
+				<a class="info_popup" data-icon="info">O firmie</a>
+			</div>
+			
 		</div>
 		
 		<div id="page_setVisit" data-role="page">
 
-			<div data-role="header" data-add-back-btn="true">
+			<div data-role="header">
+				<a href="#page_car?car_id=0" class="car_back" data-icon="back">Powrót</a>
 				<h1>Umawianie wizyty</h1>
+				<a href="#page_logout" data-icon="delete">Wyloguj</a>
 			</div>
 
 			<div role="main" class="ui-content">
@@ -161,11 +189,32 @@
 				
 			</div>
 			
+			<div data-role="footer">
+				<a class="info_popup" data-icon="info">O firmie</a>
+			</div>
+			
+		</div>
+		
+		<div id="page_logout" data-role="page">
+
+			<div data-role="header">
+				<h1>Wylogowano</h1>
+			</div>
+
+			<div role="main" class="ui-content">
+				
+				<a href="#page_login" class="ui-btn">Do logowania</a>
+				
+			</div>
+			
+			<div data-role="footer">
+				<a class="info_popup" data-icon="info">O firmie</a>
+			</div>
+			
 		</div>
 		
 		<script type="text/javascript" src="cordova.js"></script>
 		<script src="js/jquery.min.js"></script>
-		<!--script src="js/jquery-2.2.4.min.js"></script-->
 		<script>
 			$(document).bind('mobileinit', function() {
 				
@@ -176,7 +225,7 @@
 		</script>
 		<script src="js/datepicker.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
-		<!--script src="js/jquery.mobile.custom.min.js"></script-->
+		<script src="js/jquery.mobile.dynamic.popup.js"></script>
 		<script src="js/jquery.mobile.datepicker.js"></script>
 		<script src="js/jqm.page.params.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>

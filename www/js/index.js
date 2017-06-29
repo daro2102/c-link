@@ -4,6 +4,14 @@ var config = {
 	
 };
 
+var global_data = {
+	
+	name: '',
+	address: '',
+	phone: ''
+	
+};
+
 
 document.addEventListener('deviceready', init, false);
 // init();
@@ -12,6 +20,29 @@ function init() {
 	
 	$(document).ready(function() {
 	//$(document).bind('mobileinit', function() {
+		
+		
+		// wczytanie pliku informacyjnego
+		$.getJSON('info.json', function(data){
+			
+			global_data.name = data.name;
+			global_data.address = data.address;
+			global_data.phone = data.phone;
+			
+			/*$('#popup_info .name > span').html(data.name);
+			$('#popup_info .address > span').html(data.address);
+			$('#popup_info .phone > span').html(data.phone);*/
+			
+		});
+		
+		
+		$('.info_popup').click(function() {
+			
+			$.dynamic_popup('<h2 class="name">Nazwa firmy: <span>'+global_data.name+'</span></h2>\
+							<p class="address">Adres: <span>'+global_data.address+'</span></p>\
+							<p class="phone">Telefon: <span>'+global_data.phone+'</span></p>');
+			
+		});
 		
 		
 		//sprawdzenie czy mamy zapisany login i hasło
@@ -84,7 +115,7 @@ function init() {
 			}
 			
 			
-			
+			// powstrzymanie przed domyślnym działaniem formularza
 			e.preventDefault();
 			e.stopPropagation();
 			return false;
@@ -145,6 +176,13 @@ function init() {
 								});
 								
 								$('#lvisit_past').listview('refresh');
+								
+								
+								// ustawienie przycisków powrotu
+								$('#page_visitFuture .car_back').attr('href', '#page_car?car_id=' + data.id );
+								$('#page_visitPast .car_back').attr('href', '#page_car?car_id=' + data.id );
+								$('#page_setVisit .car_back').attr('href', '#page_car?car_id=' + data.id );
+								
 								
 								
 								//$.mobile.changePage('#page_carList');
@@ -217,6 +255,13 @@ function init() {
 								$( "#freplacementcar" ).selectmenu( "refresh" );
 								
 							});
+						
+						break;
+						
+					// wylogowanie
+					case 'page_logout':
+						
+						api('logout', {}, function(data) {});
 						
 						break;
 					
@@ -292,7 +337,7 @@ function init() {
 			//}
 			
 			
-			// powstrzymanie przed domyślnym działaniem formularza 
+			// powstrzymanie przed domyślnym działaniem formularza - dalsza część
 			return false;
 		});
 	
@@ -336,13 +381,13 @@ function api(mode, data, succes) {
 			
 			if(data['code'] == 0) {
 				
-				//console.log(data);
+				console.log(data);
 				
 				succes( data['data'] );
 				
 			} else {
 				
-				//console.log(api_result_code[data['code']]);
+				console.log(api_result_code[data['code']]);
 				
 			}
 			
